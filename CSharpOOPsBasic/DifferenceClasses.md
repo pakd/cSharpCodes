@@ -1,4 +1,4 @@
-# OOPS basic
+# Different Classes
 
 ## Interface
 - An interface defines a contract — it declares methods, properties, events, or indexers that implementing classes must provide.
