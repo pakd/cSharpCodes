@@ -7,3 +7,7 @@
 
 Note:-
 - Win check method is currently brute force that can be optimzied using map for rows and columns and diagonals and maintaining count for markers.
+
+## Reference
+1. https://www.youtube.com/watch?v=V7aFobyuLrU
+2. Chat GPT

@@ -14,5 +14,5 @@
 - Dice - has number of dices, and get dice value by rolling n number of dices.
 - Game - contains core playing logic
 
-# Reference 
+## Reference 
 1. https://www.youtube.com/watch?v=zRz1GPSH50I

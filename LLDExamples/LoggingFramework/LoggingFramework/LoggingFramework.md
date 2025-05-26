@@ -19,5 +19,5 @@ There are a total of three design patterns used.
 - Chain of Responsibility for different log levels.
 - Observer for different places of log
 
-# Reference
+## Reference
 1. https://www.youtube.com/watch?v=RljSBrZeJ3w
