@@ -1,32 +1,100 @@
-# Prerequisites
-*.d
+## Ignore Visual Studio temporary files, build results, and
+## user-specific files
 
-# Compiled Object files
-*.slo
-*.lo
-*.o
-*.obj
+# Build results
+[Bb]in/
+[Oo]bj/
+[Ll]og/
 
-# Precompiled Headers
-*.gch
-*.pch
+# User-specific files
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
 
-# Compiled Dynamic libraries
-*.so
-*.dylib
+# Mono Auto Generated Files
+mono_crash.*
+
+# Windows image file caches
+Thumbs.db
+ehthumbs.db
+
+# VS Code settings
+.vscode/
+
+# Rider IDE settings
+.idea/
+
+# ASP.NET Scaffolding
+ScaffoldingReadMe.txt
+
+# DotNet CLI
+.project
+.vs/
+
+# NuGet Packages
+*.nupkg
+*.snupkg
+*.nuspec
+packages/
+# Uncomment if using the dotnet pack command
+# *.symbols.nupkg
+
+# Microsoft Azure Build Output
+csx/
+*.build.csdef
+
+# Windows Installer files
+*.msi
+*.msm
+*.msp
+
+# Web output
+wwwroot/dist/
+wwwroot/node_modules/
+
+# Others
+*.log
+*.tlog
+*.bak
+*.tmp
+*.cache
+*.dbmdl
+*.jfm
+
+# Resharper
+_ReSharper*/
+*.[Rr]e[Ss]harper
+
+# Entity Framework Core Migrations
+Migrations/
+
+# Test Results
+TestResults/
+*.trx
+*.coverage
+*.coveragexml
+
+# Local config
+appsettings.Development.json
+
+# NCrunch
+*.ncrunch*
+.*crunch*.local.xml
+
+# JetBrains Rider
+.idea/
+
+# Docker files
+**/docker-compose*.yaml
+**/Dockerfile*
+
+# Optional: ignore compiled DLLs and EXEs
 *.dll
-
-# Fortran module files
-*.mod
-*.smod
-
-# Compiled Static libraries
-*.lai
-*.la
-*.a
-*.lib
-
-# Executables
 *.exe
-*.out
-*.app
+
+# Optional: ignore .NET user secrets
+secrets.json
+
+# Optional: ignore publish folder
+publish/
