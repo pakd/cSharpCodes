@@ -15,7 +15,6 @@
 - BeverageDecorator - abstract classes, has Beverage Object - still abstract methods GetDescription and GetCost
 - MilkDecorator and CaramelDecorator - concrete classes of BeverageDecorator
 
-
 ### Disclaimer:
 This example is primarily intended to demonstrate the Decorator Design Pattern, rather than to serve as a complete CoffeeHouse application. In a full implementation, you would typically include additional classes for user input, payment methods, and other features. For a comprehensive solution, it's recommended to refer to a more complete example.
 
