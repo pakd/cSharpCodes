@@ -1,5 +1,7 @@
 namespace BookMyShow.Model;
 
+
+// considering only 1 city, otherwise we have to make city class as well, which will have a list of theatres
 public class Theatre
 {
     public string TheatreId { get; set; }

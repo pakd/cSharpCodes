@@ -4,8 +4,7 @@ namespace BookMyShow.Repository;
 
 public class CinemaRepository
 {
-    private static CinemaRepository _cinemaRepositoryInstance;
-    private static readonly object _lock = new();
+    
     
     
     // Dictionaries for storing objects
@@ -14,25 +13,12 @@ public class CinemaRepository
     public Dictionary<string, Movie> Movies { get; private set; }
     public Dictionary<string, Show> Shows { get; private set; }
 
-    private CinemaRepository()
+    public CinemaRepository()
     {
         Theatres = new Dictionary<string, Theatre>();
         Screens = new Dictionary<string, Screen>();
         Movies = new Dictionary<string, Movie>();
         Shows = new Dictionary<string, Show>();
-    }
-
-    public static CinemaRepository GetInstance()
-    {
-        lock (_lock)
-        {
-            if (_cinemaRepositoryInstance == null)
-            {
-                _cinemaRepositoryInstance = new CinemaRepository();
-            }
-            return _cinemaRepositoryInstance;
-        }
-        
     }
     
     // Example helper methods

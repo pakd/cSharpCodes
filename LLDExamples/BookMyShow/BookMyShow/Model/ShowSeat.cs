@@ -9,17 +9,17 @@ public enum SeatState
 
 public class ShowSeat
 {
-    public string ShowId { get; set; }
-    public string seatId { get; set; }
+    public Show ShowRef { get; set; }
+    public Seat SeatRef { get; set; }
     public SeatState Status { get; set; }
     
     // If HELD, we keep track of which booking is holding it
     public string HoldedByBookingId { get; set; }
 
-    public ShowSeat(string showId, string seatId, SeatState status)
+    public ShowSeat(Show showRef, Seat seatRef, SeatState status)
     {
-        ShowId = showId;
-        this.seatId = seatId;
+        ShowRef = showRef;
+        SeatRef = seatRef;
         Status = status;
     }
 }

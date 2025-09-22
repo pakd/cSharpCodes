@@ -4,12 +4,13 @@ public class Movie
 {
     public string MovieId { get; set; }
     public string MovieName { get; set; }
-    public int DurationInMinutes { get; set; }
+    public TimeSpan Duration { get; set; }
+    
 
-    public Movie(string movieId, string movieName, int durationInMinutes)
+    public Movie(string id, string name, TimeSpan duration)
     {
-        MovieId = movieId;
-        MovieName = movieName;
-        this.DurationInMinutes = durationInMinutes;
+        MovieId = id;
+        MovieName = name;
+        Duration = duration;
     }
 }

@@ -4,18 +4,18 @@ public class Show
 {
     public string ShowId { get; set; }
     public string ShowName { get; set; }
-    public string TheatreId { get; set; }
-    public string ScreenId { get; set; }
-    public string MovieId { get; set; }
+    public Theatre TheatreRef { get; set; }
+    public Screen ScreenRef { get; set; }
+    public Movie MovieRef { get; set; }
     public DateTime StartsAt { get; set; }
 
-    public Show(string showId, string showName, string theatre, string screen, string movie, DateTime startsAt)
+    public Show(string showId, string showName, Theatre theatreRef, Screen screenRef, Movie movieRef, DateTime startsAt)
     {
         ShowId = showId;
         ShowName = showName;
-        theatre = theatre;
-        screen = screen;
-        movie = movie;
+        TheatreRef = theatreRef;
+        ScreenRef = screenRef;
+        MovieRef = movieRef;
         StartsAt = startsAt;
     }
 }

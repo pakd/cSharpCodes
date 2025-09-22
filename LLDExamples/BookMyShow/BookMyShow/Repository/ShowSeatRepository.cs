@@ -4,27 +4,16 @@ namespace BookMyShow.Repository;
 
 public class ShowSeatRepository
 {
-    private static ShowSeatRepository _showSeatRepository;
-    private static readonly object _lock = new();
-    
-    
     public List<ShowSeat> ShowSeats { get; }
 
-    private ShowSeatRepository()
+    public ShowSeatRepository()
     {
         ShowSeats = new List<ShowSeat>();
     }
-
-    public static ShowSeatRepository GetInstance()
+    
+    // get all ShowSeat for a show, required for rendering on UI.
+    public List<ShowSeat> GetSeats(string showId)
     {
-        lock (_lock)
-        {
-            if (_showSeatRepository == null)
-            {
-                _showSeatRepository = new ShowSeatRepository();
-            }
-            return _showSeatRepository;
-        }
-        
+        return ShowSeats.Where(x => x.ShowRef.ShowId == showId).ToList();
     }
 }
