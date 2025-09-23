@@ -9,7 +9,7 @@ public enum SeatType
 public abstract class Seat
 {
     public string SeatId { get; set; }
-    public decimal SeatPrice { get; set; }
+    public double SeatPrice { get; set; }
     public SeatType SeatType { get; set; }
 }
 

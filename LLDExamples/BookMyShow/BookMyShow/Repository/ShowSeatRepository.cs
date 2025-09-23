@@ -16,4 +16,12 @@ public class ShowSeatRepository
     {
         return ShowSeats.Where(x => x.ShowRef.ShowId == showId).ToList();
     }
+
+    public void AddShowSeat(Show show)
+    {
+        foreach (var seat in show.ScreenRef.Seats.Values)
+        {
+            ShowSeats.Add(new ShowSeat(show, seat, SeatState.FREE ));
+        }
+    }
 }

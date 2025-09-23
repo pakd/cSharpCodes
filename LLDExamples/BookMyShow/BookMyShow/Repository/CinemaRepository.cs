@@ -1,56 +1,61 @@
 using BookMyShow.Model;
 
-namespace BookMyShow.Repository;
-
-public class CinemaRepository
+namespace BookMyShow.Repository
 {
-    
-    
-    
-    // Dictionaries for storing objects
-    public Dictionary<string, Theatre> Theatres { get; private set; }
-    public Dictionary<string, Screen> Screens { get; private set; }
-    public Dictionary<string, Movie> Movies { get; private set; }
-    public Dictionary<string, Show> Shows { get; private set; }
+    public class CinemaRepository
+    {
+        // Lists instead of dictionaries
+        public List<Theatre> Theatres { get; private set; }
+        public List<Screen> Screens { get; private set; }
+        public List<Movie> Movies { get; private set; }
+        public List<Show> Shows { get; private set; }
 
-    public CinemaRepository()
-    {
-        Theatres = new Dictionary<string, Theatre>();
-        Screens = new Dictionary<string, Screen>();
-        Movies = new Dictionary<string, Movie>();
-        Shows = new Dictionary<string, Show>();
-    }
-    
-    // Example helper methods
-    public void AddTheatre(Theatre theatre)
-    {
-        if (!Theatres.ContainsKey(theatre.TheatreId))
+        public CinemaRepository()
         {
-            Theatres[theatre.TheatreId] = theatre;
+            Theatres = new List<Theatre>();
+            Screens = new List<Screen>();
+            Movies = new List<Movie>();
+            Shows = new List<Show>();
         }
-    }
 
-    public void AddMovie(Movie movie)
-    {
-        if (!Movies.ContainsKey(movie.MovieId))
+        // Helper methods
+        public void AddTheatre(Theatre theatre)
         {
-            Movies[movie.MovieId] = movie;
+            if (!Theatres.Any(t => t.TheatreId == theatre.TheatreId))
+            {
+                Theatres.Add(theatre);
+            }
         }
-    }
 
-    public void AddShow(Show show)
-    {
-        if (!Shows.ContainsKey(show.ShowId))
+        public void AddMovie(Movie movie)
         {
-            Shows[show.ShowId] = show;
+            if (!Movies.Any(m => m.MovieId == movie.MovieId))
+            {
+                Movies.Add(movie);
+            }
         }
-    }
-    
-    public void AddScreen(Screen screen)
-    {
-        if (!Screens.ContainsKey(screen.ScreenId))
+
+        public void AddShow(Show show)
         {
-            Screens[screen.ScreenId] = screen;
+            if (!Shows.Any(s => s.ShowId == show.ShowId))
+            {
+                Shows.Add(show);
+                Console.WriteLine($"Show: {show.ShowId} is added sucessfully");
+            }
         }
+
+        public void AddScreen(Screen screen)
+        {
+            if (!Screens.Any(s => s.ScreenId == screen.ScreenId))
+            {
+                Screens.Add(screen);
+            }
+        }
+
+        // Lookup methods
+        public Movie? GetMovieById(string movieId) => Movies.FirstOrDefault(m => m.MovieId == movieId);
+        public Show? GetShowById(string showId) => Shows.FirstOrDefault(s => s.ShowId == showId);
+        public Screen? GetScreenById(string screenId) => Screens.FirstOrDefault(s => s.ScreenId == screenId);
+        public Theatre? GetTheatreById(string theatreId) => Theatres.FirstOrDefault(t => t.TheatreId == theatreId);
     }
 }

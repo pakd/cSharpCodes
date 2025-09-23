@@ -20,14 +20,17 @@ public class Booking
     public List<Seat> Seats { get; set; }
     public BookingStatus Status { get; set; }
     public PaymentType paymentType { get; set; }
+    
+    public double TotalAmount { get; set; }
 
-    public Booking(string bookingId, Show showRef, User userRef, List<Seat> seats, PaymentType paymentType)
+    public Booking(string bookingId, Show showRef, User userRef, List<Seat> seats, double totalAmount,  PaymentType paymentType)
     {
         BookingId = bookingId;
         ShowRef = showRef;
         UserRef = userRef;
         Seats = seats;
         Status = BookingStatus.Created;
+        TotalAmount = totalAmount;
         this.paymentType = paymentType;
     }
 }
