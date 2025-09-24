@@ -6,8 +6,8 @@
     {
       "id": "8NrsTR35If26B9vX_ClpT",
       "type": "text",
-      "x": 34.142857142857224,
-      "y": 115.42857142857144,
+      "x": -10135.857142857143,
+      "y": -6224.571428571428,
       "width": 1060,
       "height": 475,
       "angle": 0,
@@ -23,11 +23,11 @@
       "index": "a0",
       "roundness": null,
       "seed": 1566734887,
-      "version": 810,
-      "versionNonce": 1528005129,
+      "version": 877,
+      "versionNonce": 225697797,
       "isDeleted": false,
-      "boundElements": null,
-      "updated": 1758714998069,
+      "boundElements": [],
+      "updated": 1758735302500,
       "link": null,
       "locked": false,
       "text": "Elevator System\n\n# Requirements:\n1. Design and implement an elevator system that supports multiple elevator cars and multiple floors.\n2. Requests to move an elevator can originate from two sources:\n    - External from floors (calling an elevator up or down).\n    - Internal from within an elevator car (selecting a destination floor).\n3. The system should use an optimized scheduling algorithm (such as LOOK/SCAN) to minimize unnecessary\nmovements and improve efficiency.\n\nCore Identities:\n- ElevatorCar\n- Floor\n- FloorButtonPanel\n- ElevatorButtonPanel\n- Dispatcher\n- Direction\n- ElevatorSystem\n",
@@ -43,8 +43,8 @@
     {
       "id": "iBu2G8BiwEmGmVUlf0BuA",
       "type": "rectangle",
-      "x": 559.5714285714284,
-      "y": 1015.5714285714288,
+      "x": -9610.428571428572,
+      "y": -5324.428571428572,
       "width": 219,
       "height": 175,
       "angle": 0,
@@ -62,8 +62,8 @@
         "type": 3
       },
       "seed": 939919047,
-      "version": 357,
-      "versionNonce": 543638409,
+      "version": 424,
+      "versionNonce": 711169893,
       "isDeleted": false,
       "boundElements": [
         {
@@ -79,15 +79,15 @@
           "type": "arrow"
         }
       ],
-      "updated": 1758714909290,
+      "updated": 1758735302500,
       "link": null,
       "locked": false
     },
     {
       "id": "KjVc1PkDQf-tvV52ldwd6",
       "type": "text",
-      "x": 570.0914938790456,
-      "y": 1053.071428571429,
+      "x": -9599.908506120955,
+      "y": -5286.928571428571,
       "width": 197.95986938476562,
       "height": 100,
       "angle": 0,
@@ -103,11 +103,11 @@
       "index": "a2",
       "roundness": null,
       "seed": 1831294217,
-      "version": 381,
-      "versionNonce": 2007362599,
+      "version": 448,
+      "versionNonce": 858088133,
       "isDeleted": false,
-      "boundElements": null,
-      "updated": 1758714895324,
+      "boundElements": [],
+      "updated": 1758735302500,
       "link": null,
       "locked": false,
       "text": "Floor\n- floorNumber\n- FloorButtonPannel\n--------------",
@@ -123,8 +123,8 @@
     {
       "id": "tY9QfdjygG_Q5IWe1Jg7w",
       "type": "rectangle",
-      "x": 546.5714285714287,
-      "y": 575.8571428571428,
+      "x": -9623.42857142857,
+      "y": -5764.142857142857,
       "width": 379.99999999999994,
       "height": 361,
       "angle": 0,
@@ -142,8 +142,8 @@
         "type": 3
       },
       "seed": 1014771593,
-      "version": 504,
-      "versionNonce": 1134896297,
+      "version": 587,
+      "versionNonce": 168705253,
       "isDeleted": false,
       "boundElements": [
         {
@@ -159,15 +159,15 @@
           "type": "arrow"
         }
       ],
-      "updated": 1758714905954,
+      "updated": 1758735302500,
       "link": null,
       "locked": false
     },
     {
       "id": "MMK4ckqebajSmO4alpkOB",
       "type": "text",
-      "x": 563.1215384347099,
-      "y": 593.8571428571428,
+      "x": -9606.87846156529,
+      "y": -5746.142857142857,
       "width": 346.8997802734375,
       "height": 325,
       "angle": 0,
@@ -183,11 +183,11 @@
       "index": "a4",
       "roundness": null,
       "seed": 775902825,
-      "version": 740,
-      "versionNonce": 1225100615,
+      "version": 823,
+      "versionNonce": 1633638469,
       "isDeleted": false,
       "boundElements": [],
-      "updated": 1758715025637,
+      "updated": 1758735302500,
       "link": null,
       "locked": false,
       "text": "ElevatorCar\n- ElevatorId\n- CurrentFloor\n- CurrentDirection\n- UpRequest minHeap\n- DownRequest maxHeap\n- ElevatorButtonPanel\n--------------------------\nAddRequest(floorNumber)\nStep() (always running function)\nGetNextFloorInDirection(Direction)\nMoveTo(floorNumber)\n",
@@ -203,8 +203,8 @@
     {
       "id": "guKirtBfR_xIPiPG7wDTK",
       "type": "rectangle",
-      "x": 109.28571428571433,
-      "y": 756.5714285714286,
+      "x": -10060.714285714286,
+      "y": -5583.428571428572,
       "width": 252.00000000000003,
       "height": 185,
       "angle": 0,
@@ -222,8 +222,8 @@
         "type": 3
       },
       "seed": 527536487,
-      "version": 425,
-      "versionNonce": 954825961,
+      "version": 494,
+      "versionNonce": 1517953637,
       "isDeleted": false,
       "boundElements": [
         {
@@ -239,15 +239,15 @@
           "type": "arrow"
         }
       ],
-      "updated": 1758714901881,
+      "updated": 1758735302500,
       "link": null,
       "locked": false
     },
     {
       "id": "SWVn2wMbpDwrtBJYqdQDa",
       "type": "text",
-      "x": 140.12577928815574,
-      "y": 761.5714285714286,
+      "x": -10029.874220711845,
+      "y": -5578.428571428572,
       "width": 190.3198699951172,
       "height": 175,
       "angle": 0,
@@ -263,11 +263,11 @@
       "index": "a6",
       "roundness": null,
       "seed": 505990279,
-      "version": 502,
-      "versionNonce": 1136942951,
+      "version": 569,
+      "versionNonce": 1446153669,
       "isDeleted": false,
       "boundElements": [],
-      "updated": 1758714892000,
+      "updated": 1758735302500,
       "link": null,
       "locked": false,
       "text": "ElevatorSystem\n- List<Floor>\n- List<ElevatorCar>\n-Dispatcher\n------------------\nStepAll()\n",
@@ -283,8 +283,8 @@
     {
       "id": "eViXMYOk7uBid10tjskCG",
       "type": "rectangle",
-      "x": 997,
-      "y": 948.142857142857,
+      "x": -9173,
+      "y": -5391.857142857143,
       "width": 437,
       "height": 273,
       "angle": 0,
@@ -302,8 +302,8 @@
         "type": 3
       },
       "seed": 231686823,
-      "version": 424,
-      "versionNonce": 90266505,
+      "version": 491,
+      "versionNonce": 285689829,
       "isDeleted": false,
       "boundElements": [
         {
@@ -319,15 +319,15 @@
           "type": "arrow"
         }
       ],
-      "updated": 1758714920282,
+      "updated": 1758735302500,
       "link": null,
       "locked": false
     },
     {
       "id": "2IkgPZ6gANZHabVM0eDSr",
       "type": "text",
-      "x": 1016.4401550292969,
-      "y": 1022.142857142857,
+      "x": -9153.559844970703,
+      "y": -5317.857142857143,
       "width": 398.11968994140625,
       "height": 125,
       "angle": 0,
@@ -343,11 +343,11 @@
       "index": "a8",
       "roundness": null,
       "seed": 1883133383,
-      "version": 507,
-      "versionNonce": 53281897,
+      "version": 574,
+      "versionNonce": 1526661957,
       "isDeleted": false,
       "boundElements": [],
-      "updated": 1758714912172,
+      "updated": 1758735302500,
       "link": null,
       "locked": false,
       "text": "FloorButtonPanel\n- FloorNumber\n-Dispatcher\n----------------\nDispatchRequest(Direction): ElevatorCar",
@@ -363,8 +363,8 @@
     {
       "id": "-J9Ju292YyDbIzmvTKmSk",
       "type": "rectangle",
-      "x": 1015,
-      "y": 563,
+      "x": -9155,
+      "y": -5777,
       "width": 330,
       "height": 217,
       "angle": 0,
@@ -382,8 +382,8 @@
         "type": 3
       },
       "seed": 752595017,
-      "version": 365,
-      "versionNonce": 1270926953,
+      "version": 434,
+      "versionNonce": 1930800485,
       "isDeleted": false,
       "boundElements": [
         {
@@ -395,15 +395,15 @@
           "type": "arrow"
         }
       ],
-      "updated": 1758714905954,
+      "updated": 1758735302500,
       "link": null,
       "locked": false
     },
     {
       "id": "5XlRli3AFjHOJvBEBGvh6",
       "type": "text",
-      "x": 1041.7400817871094,
-      "y": 621.5,
+      "x": -9128.25991821289,
+      "y": -5718.5,
       "width": 276.51983642578125,
       "height": 100,
       "angle": 0,
@@ -419,11 +419,11 @@
       "index": "aA",
       "roundness": null,
       "seed": 275824425,
-      "version": 440,
-      "versionNonce": 1974055815,
+      "version": 507,
+      "versionNonce": 153401541,
       "isDeleted": false,
       "boundElements": [],
-      "updated": 1758714856230,
+      "updated": 1758735302500,
       "link": null,
       "locked": false,
       "text": "ElevatorButtonPanel\n- ElevatorCar ref\n----------------------\n- RequestFloor(floorNumber)",
@@ -439,8 +439,8 @@
     {
       "id": "VRydZEAg5kpcz2jThHJGH",
       "type": "rectangle",
-      "x": 1389.4285714285713,
-      "y": 606.7142857142857,
+      "x": -8780.57142857143,
+      "y": -5733.285714285715,
       "width": 238,
       "height": 120,
       "angle": 0,
@@ -458,8 +458,8 @@
         "type": 3
       },
       "seed": 1432836041,
-      "version": 335,
-      "versionNonce": 811924423,
+      "version": 402,
+      "versionNonce": 2106002309,
       "isDeleted": false,
       "boundElements": [
         {
@@ -467,15 +467,15 @@
           "id": "BrZzF__0Yvk7lBeIvN6uB"
         }
       ],
-      "updated": 1758714995177,
+      "updated": 1758735302500,
       "link": null,
       "locked": false
     },
     {
       "id": "BrZzF__0Yvk7lBeIvN6uB",
       "type": "text",
-      "x": 1416.7686135428291,
-      "y": 641.7142857142857,
+      "x": -8753.231386457172,
+      "y": -5698.285714285715,
       "width": 183.31991577148438,
       "height": 50,
       "angle": 0,
@@ -491,11 +491,11 @@
       "index": "aC",
       "roundness": null,
       "seed": 136017577,
-      "version": 338,
-      "versionNonce": 1711270631,
+      "version": 405,
+      "versionNonce": 369447653,
       "isDeleted": false,
       "boundElements": [],
-      "updated": 1758714995177,
+      "updated": 1758735302500,
       "link": null,
       "locked": false,
       "text": "Direction:\nUP | DOWN | IDLE",
@@ -511,8 +511,8 @@
     {
       "id": "V7xrp2_a_RcTToWdJoySu",
       "type": "rectangle",
-      "x": 1563,
-      "y": 953.4285714285717,
+      "x": -8607,
+      "y": -5386.571428571428,
       "width": 515,
       "height": 241,
       "angle": 0,
@@ -530,8 +530,8 @@
         "type": 3
       },
       "seed": 1871678121,
-      "version": 556,
-      "versionNonce": 692374857,
+      "version": 623,
+      "versionNonce": 1241755205,
       "isDeleted": false,
       "boundElements": [
         {
@@ -543,15 +543,15 @@
           "type": "arrow"
         }
       ],
-      "updated": 1758714920282,
+      "updated": 1758735302500,
       "link": null,
       "locked": false
     },
     {
       "id": "sRC0xwsAB1AMnkAgHgfqX",
       "type": "text",
-      "x": 1580.440170288086,
-      "y": 1011.4285714285717,
+      "x": -8589.559829711914,
+      "y": -5328.571428571428,
       "width": 480.1196594238281,
       "height": 125,
       "angle": 0,
@@ -567,11 +567,11 @@
       "index": "aE",
       "roundness": null,
       "seed": 1484410249,
-      "version": 701,
-      "versionNonce": 494623465,
+      "version": 768,
+      "versionNonce": 1482661285,
       "isDeleted": false,
       "boundElements": [],
-      "updated": 1758714943562,
+      "updated": 1758735302500,
       "link": null,
       "locked": false,
       "text": "Dispatcher\n- List<ElevatorCar>\n-------------\nDispatchRequest(requestedFromFloor, Direction):\nElevatorCar",
@@ -587,8 +587,8 @@
     {
       "id": "tFBX4nGcm9RrDFuXXHxpP",
       "type": "arrow",
-      "x": 371.1428571428571,
-      "y": 847.7142857142857,
+      "x": -9798.857142857143,
+      "y": -5492.285714285715,
       "width": 155.71428571428578,
       "height": 117.14285714285711,
       "angle": 0,
@@ -606,11 +606,11 @@
         "type": 2
       },
       "seed": 1238953129,
-      "version": 31,
-      "versionNonce": 53656969,
+      "version": 250,
+      "versionNonce": 1060118571,
       "isDeleted": false,
-      "boundElements": null,
-      "updated": 1758714899148,
+      "boundElements": [],
+      "updated": 1758735303169,
       "link": null,
       "locked": false,
       "points": [
@@ -626,13 +626,13 @@
       "lastCommittedPoint": null,
       "startBinding": {
         "elementId": "guKirtBfR_xIPiPG7wDTK",
-        "focus": 0.5384583086951494,
-        "gap": 9.857142857142776
+        "focus": 0.5384583086951569,
+        "gap": 9.857142857143117
       },
       "endBinding": {
         "elementId": "tY9QfdjygG_Q5IWe1Jg7w",
-        "focus": 0.5675080992700013,
-        "gap": 19.71428571428578
+        "focus": 0.567508099270002,
+        "gap": 19.714285714286234
       },
       "startArrowhead": null,
       "endArrowhead": "arrow",
@@ -641,8 +641,8 @@
     {
       "id": "eJ058bK_W7e-P5dAUCN2q",
       "type": "arrow",
-      "x": 371.1428571428571,
-      "y": 874.8571428571428,
+      "x": -9798.857142857143,
+      "y": -5465.142857142857,
       "width": 168.57142857142844,
       "height": 201.42857142857144,
       "angle": 0,
@@ -660,11 +660,11 @@
         "type": 2
       },
       "seed": 1193293031,
-      "version": 50,
-      "versionNonce": 1046214601,
+      "version": 255,
+      "versionNonce": 1698713963,
       "isDeleted": false,
-      "boundElements": null,
-      "updated": 1758714901882,
+      "boundElements": [],
+      "updated": 1758735303170,
       "link": null,
       "locked": false,
       "points": [
@@ -680,13 +680,13 @@
       "lastCommittedPoint": null,
       "startBinding": {
         "elementId": "guKirtBfR_xIPiPG7wDTK",
-        "focus": -0.5618054759995419,
-        "gap": 9.857142857142776
+        "focus": -0.5618054759995447,
+        "gap": 9.857142857143117
       },
       "endBinding": {
         "elementId": "iBu2G8BiwEmGmVUlf0BuA",
-        "focus": -0.5852488058042206,
-        "gap": 19.85714285714289
+        "focus": -0.5852488058042151,
+        "gap": 19.857142857141298
       },
       "startArrowhead": null,
       "endArrowhead": "arrow",
@@ -695,8 +695,8 @@
     {
       "id": "_3fZY54_tDZyP_O7o-fCd",
       "type": "arrow",
-      "x": 942.5714285714284,
-      "y": 740.5714285714286,
+      "x": -9227.428571428572,
+      "y": -5599.428571428572,
       "width": 52.85714285714289,
       "height": 64.28571428571433,
       "angle": 0,
@@ -714,11 +714,11 @@
         "type": 2
       },
       "seed": 723392167,
-      "version": 26,
-      "versionNonce": 181184393,
+      "version": 244,
+      "versionNonce": 1739123723,
       "isDeleted": false,
-      "boundElements": null,
-      "updated": 1758714905954,
+      "boundElements": [],
+      "updated": 1758735303170,
       "link": null,
       "locked": false,
       "points": [
@@ -733,9 +733,9 @@
       ],
       "lastCommittedPoint": null,
       "startBinding": {
-        "elementId": "tY9QfdjygG_Q5IWe1Jg7w",
-        "focus": 0.5703732193865821,
-        "gap": 15.999999999999773
+        "elementId": "-J9Ju292YyDbIzmvTKmSk",
+        "focus": -2.3834167591681514,
+        "gap": 32
       },
       "endBinding": {
         "elementId": "-J9Ju292YyDbIzmvTKmSk",
@@ -749,8 +749,8 @@
     {
       "id": "lSHm4xYvYce-XIfsB8ZS6",
       "type": "arrow",
-      "x": 798.2857142857142,
-      "y": 1083.3760070776814,
+      "x": -9371.714285714286,
+      "y": -5256.623992922318,
       "width": 182.85714285714266,
       "height": 16.15624112468913,
       "angle": 0,
@@ -768,11 +768,11 @@
         "type": 2
       },
       "seed": 344304359,
-      "version": 133,
-      "versionNonce": 2080100489,
+      "version": 336,
+      "versionNonce": 421504331,
       "isDeleted": false,
-      "boundElements": null,
-      "updated": 1758714923098,
+      "boundElements": [],
+      "updated": 1758735303171,
       "link": null,
       "locked": false,
       "points": [
@@ -788,13 +788,13 @@
       "lastCommittedPoint": null,
       "startBinding": {
         "elementId": "iBu2G8BiwEmGmVUlf0BuA",
-        "focus": -0.08519455847827977,
-        "gap": 19.71428571428578
+        "focus": -0.08519455847827102,
+        "gap": 19.714285714286234
       },
       "endBinding": {
         "elementId": "eViXMYOk7uBid10tjskCG",
-        "focus": 0.3340817718505203,
-        "gap": 15.85714285714289
+        "focus": 0.24472563159196856,
+        "gap": 15.857142857143117
       },
       "startArrowhead": null,
       "endArrowhead": "arrow",
@@ -803,8 +803,8 @@
     {
       "id": "iIlH70gDF_wJpufixY1ts",
       "type": "arrow",
-      "x": 1442.5714285714287,
-      "y": 1082,
+      "x": -8727.42857142857,
+      "y": -5258,
       "width": 105.71428571428555,
       "height": 1.4285714285715585,
       "angle": 0,
@@ -822,11 +822,11 @@
         "type": 2
       },
       "seed": 703917607,
-      "version": 36,
-      "versionNonce": 2040463977,
+      "version": 239,
+      "versionNonce": 1084821131,
       "isDeleted": false,
-      "boundElements": null,
-      "updated": 1758714920282,
+      "boundElements": [],
+      "updated": 1758735303171,
       "link": null,
       "locked": false,
       "points": [
@@ -842,13 +842,13 @@
       "lastCommittedPoint": null,
       "startBinding": {
         "elementId": "eViXMYOk7uBid10tjskCG",
-        "focus": -0.04095574951721048,
-        "gap": 8.571428571428669
+        "focus": -0.04095574951720375,
+        "gap": 8.571428571429351
       },
       "endBinding": {
         "elementId": "V7xrp2_a_RcTToWdJoySu",
-        "focus": -0.10629617807121047,
-        "gap": 14.71428571428578
+        "focus": -0.106296178071205,
+        "gap": 14.714285714284415
       },
       "startArrowhead": null,
       "endArrowhead": "arrow",
