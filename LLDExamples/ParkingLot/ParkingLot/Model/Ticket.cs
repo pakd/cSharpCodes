@@ -1,25 +1,24 @@
-namespace ParkingLot
+namespace ParkingLot.Model;
+
+public class Ticket
 {
-    public class Ticket
+    public string TicketId { get; set; }
+    public Vehicle VehicleRef { get; set; }
+    public ParkingSpot ParkingSpotRef { get; set; }
+    public DateTime EntryTime { get; set; }
+    public DateTime ExitTime { get; set; }
+
+    public Ticket(string ticketId, Vehicle vehicleRef, ParkingSpot parkingSpotRef)
     {
-        public string TicketNumber { get; set; }
-        public long StartTime { get; set; }
-        public long EndTime { get; set; }
-        public Vehicle Vehicle { get; set; }
-        public ParkingSlot ParkingSlot { get; set; }
-
-        private Ticket() { }
-
-        public static Ticket CreateTicket(Vehicle vehicle, ParkingSlot parkingSlot)
-        {
-            long currentTime = DateTimeOffset.UtcNow.ToUnixTimeMilliseconds();
-            return new Ticket
-            {
-                Vehicle = vehicle,
-                ParkingSlot = parkingSlot,
-                StartTime = currentTime,
-                TicketNumber = vehicle.VehicleNumber + currentTime
-            };
-        }
+        TicketId = ticketId;
+        VehicleRef = vehicleRef;
+        ParkingSpotRef = parkingSpotRef;
+        EntryTime = DateTime.Now;
     }
+
+    public void CloseTicket()
+    {
+        ExitTime = DateTime.Now;
+    }
+    
 }

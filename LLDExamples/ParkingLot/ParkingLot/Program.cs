@@ -1,4 +1,7 @@
 ﻿using System;
+using ParkingLot.Model;
+using ParkingLot.Repositories;
+using ParkingLot.Strategies;
 
 namespace ParkingLot
 {
@@ -6,52 +9,75 @@ namespace ParkingLot
     {
         public static void Main(string[] args)
         {
-            string nameOfParkingLot = "Pintosss Parking Lot";
-
-            Address address = new Address
+            Console.WriteLine("Welcome to the Parking Lot!");
+            
+            // Step1: Create floors and spots
+            var floor1 = new ParkingFloor(1, new List<ParkingSpot>
             {
-                City = "Bangalore",
-                Country = "India",
-                State = "KA"
-            };
+                new SmallSpot("S1"),
+                new CompactSpot("C1"),
+                new LargeSpot("L1"),
+                new LargeSpot("L2")
+            });
 
-            var allSlots = new Dictionary<ParkingSlotType, Dictionary<string, ParkingSlot>>();
-
-            var compactSlot = new Dictionary<string, ParkingSlot>
+            var floor2 = new ParkingFloor(2, new List<ParkingSpot>
             {
-                { "C1", new ParkingSlot("C1", ParkingSlotType.Compact) },
-                { "C2", new ParkingSlot("C2", ParkingSlotType.Compact) },
-                { "C3", new ParkingSlot("C3", ParkingSlotType.Compact) }
-            };
-            allSlots[ParkingSlotType.Compact] = compactSlot;
-
-            var largeSlot = new Dictionary<string, ParkingSlot>
+                new SmallSpot("S2"),
+                new CompactSpot("C2"),
+                new LargeSpot("L3")
+            });
+            
+            // Step2: Create repository, strategy, and pricing
+            var ticketRepo = new TicketRepository();
+            var spotStrategy = new NearestSpotParkingStrategy();
+            var pricingStrategy = new HourlyPricingStrategy();
+            
+            // Step3: Create parking lot
+            var parkingLot = new ParkingLot(ticketRepo, spotStrategy, pricingStrategy, "City Lot", new List<ParkingFloor> { floor1, floor2 });
+            
+            // Step4:  Create vehicles
+            var car = new Car("CAR-123");
+            var bike = new Motorcylce("BIKE-777");
+            var suv = new Suv("SUV-888");
+            
+            // Step5: Park vehicles
+            var carTicket = parkingLot.ParkVehicle(car);
+            if (carTicket != null)
             {
-                { "L1", new ParkingSlot("L1", ParkingSlotType.Large) },
-                { "L2", new ParkingSlot("L2", ParkingSlotType.Large) },
-                { "L3", new ParkingSlot("L3", ParkingSlotType.Large) }
-            };
-            allSlots[ParkingSlotType.Large] = largeSlot;
-
-            ParkingFloor parkingFloor = new ParkingFloor("1", allSlots);
-            List<ParkingFloor> parkingFloors = new List<ParkingFloor> { parkingFloor };
-
-            ParkingLot parkingLot = ParkingLot.GetInstance(nameOfParkingLot, address, parkingFloors);
-
-            Vehicle vehicle = new Vehicle
+                ticketRepo.Tickets.Add(carTicket);
+                Console.WriteLine($"Car parked at {carTicket.ParkingSpotRef.SpotId}, ticket {carTicket.TicketId}");
+            }
+            
+            var bikeTicket = parkingLot.ParkVehicle(bike);
+            if (bikeTicket != null)
             {
-                VehicleCategory = VehicleCategory.Hatchback,
-                VehicleNumber = "KA-01-MA-9999"
-            };
+                ticketRepo.Tickets.Add(bikeTicket);
+                Console.WriteLine($"Motorcycle parked at {bikeTicket.ParkingSpotRef.SpotId}, ticket {bikeTicket.TicketId}");
+            }
 
-            Ticket ticket = parkingLot.AssignTicket(vehicle);
-            Console.WriteLine("Ticket number >> " + ticket.TicketNumber);
+            var suvTicket = parkingLot.ParkVehicle(suv);
+            if (suvTicket != null)
+            {
+                ticketRepo.Tickets.Add(suvTicket);
+                Console.WriteLine($"SUV parked at {suvTicket.ParkingSpotRef.SpotId}, ticket {suvTicket.TicketId}");
+            }
+            
+            // simulate duration
+            Thread.Sleep(5000);
+            
+            // Step6: Unpark Vehicles and get ticket amount
+            // Unpark car
+            carTicket.CloseTicket();
+            double carAmount = parkingLot.unparkVehicle(carTicket.TicketId);
 
-            // Simulate parking time
-            Thread.Sleep(10000);
+            // Unpark bike
+            bikeTicket.CloseTicket();
+            double bikeAmount = parkingLot.unparkVehicle(bikeTicket.TicketId);
 
-            double price = parkingLot.ScanAndPay(ticket);
-            Console.WriteLine("Price is >> " + price);
+            // Unpark SUV
+            suvTicket.CloseTicket();
+            double suvAmount = parkingLot.unparkVehicle(suvTicket.TicketId);
         }
     }
+    
 }

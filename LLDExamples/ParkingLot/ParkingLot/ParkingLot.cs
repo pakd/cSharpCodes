@@ -1,84 +1,50 @@
-namespace ParkingLot
+using ParkingLot.Model;
+using ParkingLot.Repositories;
+using ParkingLot.Strategies;
+
+namespace ParkingLot;
+
+public class ParkingLot
 {
-    public class ParkingLot
+    public string Name { get; set; }
+    public List<ParkingFloor> ParkingFloors { get; set; }
+    private TicketRepository ticketRepository;
+    private ISpotAssignmentStrategy _spotAssignmentStrategy;
+    private IPricingStrategy _pricingStrategy;
+
+    public ParkingLot(TicketRepository ticketRepository, ISpotAssignmentStrategy spotAssignmentStrategy, IPricingStrategy pricingStrategy, string name, List<ParkingFloor> parkingFloors)
     {
-        private string NameOfParkingLot;
-        private Address Address;
-        private List<ParkingFloor> ParkingFloors;
-        private static ParkingLot _instance = null;
-        private static readonly object _lock = new object();
+        this.ticketRepository = ticketRepository;
+        _spotAssignmentStrategy = spotAssignmentStrategy;
+        _pricingStrategy = pricingStrategy;
+        Name = name;
+        ParkingFloors = parkingFloors;
+    }
 
-        private ParkingLot(string nameOfParkingLot, Address address, List<ParkingFloor> parkingFloors)
+    public Ticket? ParkVehicle(Vehicle vehicle)
+    {
+        Console.WriteLine("[Debug] under ParkVehicle");
+        ParkingSpot? allotedSlot = _spotAssignmentStrategy.FindSpot(ParkingFloors, vehicle);
+        if (allotedSlot != null)
         {
-            NameOfParkingLot = nameOfParkingLot;
-            Address = address;
-            ParkingFloors = parkingFloors;
+            allotedSlot.ParkedVehicle = vehicle;
+            var ticket =  new Ticket(Guid.NewGuid().ToString(), vehicle, allotedSlot);
+            return ticket;
         }
 
-        public static ParkingLot GetInstance(string nameOfParkingLot, Address address, List<ParkingFloor> parkingFloors)
-        {
-            if (_instance == null)
-            {
-                lock (_lock)
-                {
-                    if (_instance == null)
-                    {
-                        _instance = new ParkingLot(nameOfParkingLot, address, parkingFloors);
-                    }
-                }
-            }
+        return null;
+    }
 
-            return _instance;
-        }
-
-        public void AddFloor(string name, Dictionary<ParkingSlotType, Dictionary<string, ParkingSlot>> parkSlots)
-        {
-            ParkingFloor parkingFloor = new ParkingFloor(name, parkSlots);
-            ParkingFloors.Add(parkingFloor);
-        }
-
-        public void RemoveFloor(ParkingFloor parkingFloor)
-        {
-            ParkingFloors.Remove(parkingFloor);
-        }
-
-        public Ticket AssignTicket(Vehicle vehicle)
-        {
-            ParkingSlot parkingSlot = GetParkingSlotForVehicleAndPark(vehicle);
-            if (parkingSlot == null) return null;
-
-            Ticket parkingTicket = CreateTicketForSlot(parkingSlot, vehicle);
-            // Persist ticket to database (not implemented)
-            return parkingTicket;
-        }
-
-        public double ScanAndPay(Ticket ticket)
-        {
-            long endTime = DateTimeOffset.UtcNow.ToUnixTimeMilliseconds();
-            ticket.ParkingSlot.RemoveVehicle(ticket.Vehicle);
-
-            int durationInSeconds = (int)((endTime - ticket.StartTime) / 1000);
-            double price =
-                ParkingSlotPricing.GetPriceForParking(ticket.ParkingSlot.ParkingSlotType, durationInSeconds);
-
-            // Persist record to database (not implemented)
-            return price;
-        }
-
-        private Ticket CreateTicketForSlot(ParkingSlot parkingSlot, Vehicle vehicle)
-        {
-            return Ticket.CreateTicket(vehicle, parkingSlot);
-        }
-
-        private ParkingSlot GetParkingSlotForVehicleAndPark(Vehicle vehicle)
-        {
-            foreach (var floor in ParkingFloors)
-            {
-                var slot = floor.ParkVehicle(vehicle);
-                if (slot != null) return slot;
-            }
-
-            return null;
-        }
+    public double unparkVehicle(string ticketId)
+    {
+        // get right ticket
+        var ticket = ticketRepository.Tickets.Where(x => x.TicketId == ticketId).FirstOrDefault();
+        
+        var amount = _pricingStrategy.CalculatePrice(ticket);
+        
+        ticket.ParkingSpotRef.ParkedVehicle = null;
+        
+        Console.WriteLine($"Ticket {ticketId} unparked, total amount: {amount}");
+        return amount;
     }
 }
